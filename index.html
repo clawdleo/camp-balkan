@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balkan Camp Scout - Wild Camping Guide</title>
+    <meta name="description" content="Complete guide to wild camping, free overnight parking, and camper life in the Balkans. Laws, spots, and tips for Slovenia, Croatia, Bosnia, Serbia, Montenegro.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #2d5016;
+            --forest-light: #4a7c23;
+            --earth: #8b6914;
+            --sky: #87ceeb;
+            --stone: #6b6b6b;
+            --cream: #faf8f5;
+            --white: #ffffff;
+            --danger: #c0392b;
+            --warning: #f39c12;
+            --success: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--cream);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--forest) 0%, var(--forest-light) 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header .subtitle {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+        
+        .emoji-big {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Navigation */
+        nav {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            min-width: max-content;
+        }
+        
+        nav a {
+            display: block;
+            padding: 1rem;
+            color: var(--forest);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        nav a:hover, nav a.active {
+            background: rgba(45, 80, 22, 0.05);
+            border-bottom-color: var(--forest);
+        }
+        
+        /* Main */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        section h2 {
+            color: var(--forest);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        section h3 {
+            color: var(--forest-light);
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+        
+        /* Country Cards */
+        .country-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .country-header {
+            background: linear-gradient(90deg, var(--forest) 0%, var(--forest-light) 100%);
+            color: white;
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .country-header h3 {
+            color: white;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        
+        .country-header .toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .country-card.open .toggle {
+            transform: rotate(180deg);
+        }
+        
+        .country-content {
+            padding: 1rem;
+            display: none;
+        }
+        
+        .country-card.open .country-content {
+            display: block;
+        }
+        
+        /* Status badges */
+        .status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .status-illegal {
+            background: #fce4e4;
+            color: var(--danger);
+        }
+        
+        .status-gray {
+            background: #e8e8e8;
+            color: var(--stone);
+        }
+        
+        .status-relaxed {
+            background: #e8f5e9;
+            color: var(--success);
+        }
+        
+        .status-tolerated {
+            background: #fff3e0;
+            color: var(--warning);
+        }
+        
+        /* Tips */
+        .tip-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            border-left: 4px solid var(--success);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #fffde7 100%);
+            border-left: 4px solid var(--warning);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .danger-box {
+            background: linear-gradient(135deg, #fce4e4 0%, #ffebee 100%);
+            border-left: 4px solid var(--danger);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        /* Loopholes */
+        .loophole {
+            background: #f0f7ff;
+            border: 1px dashed #4a90d9;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .loophole h4 {
+            color: #2c5aa0;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Lists */
+        ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin: 0.4rem 0;
+        }
+        
+        /* Apps Grid */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .app-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .app-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .app-card .icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .app-card h4 {
+            font-size: 0.9rem;
+            color: var(--forest);
+        }
+        
+        .app-card p {
+            font-size: 0.75rem;
+            color: var(--stone);
+            margin-top: 0.25rem;
+        }
+        
+        /* Build Section */
+        .cost-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .cost-table th, .cost-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .cost-table th {
+            background: var(--forest);
+            color: white;
+        }
+        
+        .cost-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        /* YouTube Links */
+        .yt-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+            text-decoration: none;
+            color: inherit;
+            transition: background 0.2s;
+        }
+        
+        .yt-link:hover {
+            background: #e8e8e8;
+        }
+        
+        .yt-link .yt-icon {
+            font-size: 1.5rem;
+        }
+        
+        /* Spots section */
+        .spot {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1rem 0;
+        }
+        
+        .spot:last-child {
+            border-bottom: none;
+        }
+        
+        .spot h4 {
+            color: var(--forest);
+            margin-bottom: 0.25rem;
+        }
+        
+        .spot .coords {
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--stone);
+        }
+        
+        /* Quick Stats */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 0.75rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .stat .number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--forest);
+        }
+        
+        .stat .label {
+            font-size: 0.75rem;
+            color: var(--stone);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--forest);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+        }
+        
+        footer a {
+            color: var(--sky);
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            section {
+                padding: 1rem;
+            }
+            
+            .quick-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="emoji-big">🏕️</div>
+        <h1>Balkan Camp Scout</h1>
+        <p class="subtitle">Wild camping, free parking & van life in the Balkans</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#laws">📜 Laws</a></li>
+            <li><a href="#tips">💡 Tips</a></li>
+            <li><a href="#spots">📍 Spots</a></li>
+            <li><a href="#apps">📱 Apps</a></li>
+            <li><a href="#build">🔧 Van Build</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <!-- Quick Reality Check -->
+        <section>
+            <h2>⚡ The Reality Check</h2>
+            <p>Wild camping is <strong>technically illegal</strong> in most Balkan countries. But enforcement varies wildly. Here's the truth:</p>
+            
+            <div class="quick-stats">
+                <div class="stat">
+                    <div class="number">🇭🇷</div>
+                    <div class="label">Croatia: Strict</div>
+                </div>
+                <div class="stat">
+                    <div class="number">🇸🇮</div>
+                    <div class="label">Slovenia: Strict</div>
+                </div>
+                <div class="stat">
+                    <div class="number">🇧🇦</div>
+                    <div class="label">Bosnia: Relaxed</div>
+                </div>
+            </div>
+            <div class="quick-stats">
+                <div class="stat">
+                    <div class="number">🇷🇸</div>
+                    <div class="label">Serbia: Relaxed</div>
+                </div>
+                <div class="stat">
+                    <div class="number">🇲🇪</div>
+                    <div class="label">Montenegro: Grey</div>
+                </div>
+                <div class="stat">
+                    <div class="number">🇦🇱</div>
+                    <div class="label">Albania: Wild West</div>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <strong>🎯 The Golden Rule:</strong> "Parking" overnight is legal almost everywhere. "Camping" (tables, awnings, obviously living there) is what gets you fined.
+            </div>
+        </section>
+        
+        <!-- Laws by Country -->
+        <section id="laws">
+            <h2>📜 Laws by Country</h2>
+            
+            <!-- Slovenia -->
+            <div class="country-card open">
+                <div class="country-header" onclick="toggleCountry(this)">
+                    <h3>🇸🇮 Slovenia</h3>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="country-content">
+                    <span class="status status-illegal">⛔ Illegal - Enforced</span>
+                    
+                    <h4>The Law</h4>
+                    <ul>
+                        <li><strong>Wild camping is prohibited</strong> throughout Slovenia</li>
+                        <li>Fines: <strong>€200-600</strong> for individuals</li>
+                        <li>National parks (Triglav): <strong>€400-1,200</strong> fines</li>
+                        <li>No overnight parking in public parking lots (sign says "parkiranje" not "prenočevanje")</li>
+                    </ul>
+                    
+                    <div class="loophole">
+                        <h4>🔓 Legal Loopholes</h4>
+                        <ul>
+                            <li><strong>Private land with permission</strong> - Get it in writing! Many farmers allow it</li>
+                            <li><strong>Designated motorhome areas</strong> - "Avtodomarstvo" - Many are free or €5-10</li>
+                            <li><strong>Farm stays (Kmetija)</strong> - Often allow camper parking for €10-15</li>
+                            <li><strong>Vineyard stays</strong> - Wine country = friendly farmers</li>
+                            <li><strong>Rest stops on highways</strong> - Tolerated for one night, no camping gear outside</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <strong>⚠️ Hotspots to Avoid:</strong> Lake Bled, Lake Bohinj, Triglav area - Heavily patrolled, tourists have ruined it.
+                    </div>
+                    
+                    <h4>Best Alternatives</h4>
+                    <ul>
+                        <li>Kamp Klin, Vipava Valley - Cheap, beautiful</li>
+                        <li>Kamp Nadiža - River camping, €12/night</li>
+                        <li>Park4Night spots in Goriška Brda wine region</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Croatia -->
+            <div class="country-card">
+                <div class="country-header" onclick="toggleCountry(this)">
+                    <h3>🇭🇷 Croatia</h3>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="country-content">
+                    <span class="status status-illegal">⛔ Illegal - ACTIVELY Enforced</span>
+                    
+                    <h4>The Law</h4>
+                    <ul>
+                        <li><strong>Wild camping strictly forbidden</strong> - "Divlje kampiranje"</li>
+                        <li>Fines: <strong>€150-1,300</strong> (up to €2,000 in nature parks)</li>
+                        <li>Police + tourist inspectors actively patrol coastal areas</li>
+                        <li>Locals WILL report you (especially in Dalmatia - they want camp income)</li>
+                    </ul>
+                    
+                    <div class="danger-box">
+                        <strong>🚨 Croatia is SERIOUS:</strong> They want those camping fees. Inspectors drive around at night checking spots. Peak season = €70-100/night at official camps. They protect that business.
+                    </div>
+                    
+                    <div class="loophole">
+                        <h4>🔓 Legal Loopholes</h4>
+                        <ul>
+                            <li><strong>"Robinson" camps</strong> - Mini camps on private land, €10-25/night, often unlisted</li>
+                            <li><strong>Agritourism (OPG)</strong> - Farms with camping - Much cheaper, often have showers</li>
+                            <li><strong>Private land agreement</strong> - "Smijemo li prespavati?" (Can we sleep here?)</li>
+                            <li><strong>Marinas</strong> - Some allow camper parking (Murter, Biograd)</li>
+                            <li><strong>Inland Croatia</strong> - Slavonia, Zagorje - Almost no enforcement</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>Cheap Alternatives (Beat the €70/night camps)</h4>
+                    <ul>
+                        <li><strong>Autokamp Trsteno</strong> - Near Dubrovnik, €18/night</li>
+                        <li><strong>Camp Straško, Pag</strong> - Huge, book ahead, €25</li>
+                        <li><strong>Kamp Vranjica, near Split</strong> - €15-20</li>
+                        <li><strong>Robinson camps on islands</strong> - Kayak/boat in only, €15</li>
+                        <li><strong>Slavonia/Baranja</strong> - Wine country, super cheap</li>
+                    </ul>
+                    
+                    <div class="tip-box">
+                        <strong>💡 Pro Tip:</strong> Arrive late (after 10PM), leave early (before 8AM). Keep everything inside the van. "We're just resting before continuing our drive" is your story.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bosnia -->
+            <div class="country-card">
+                <div class="country-header" onclick="toggleCountry(this)">
+                    <h3>🇧🇦 Bosnia & Herzegovina</h3>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="country-content">
+                    <span class="status status-relaxed">✅ Relaxed - Rarely Enforced</span>
+                    
+                    <h4>The Law</h4>
+                    <ul>
+                        <li>Technically requires camping at official sites</li>
+                        <li>In practice: <strong>almost never enforced</strong></li>
+                        <li>Police are friendly and usually just curious about your camper</li>
+                        <li>No dedicated tourism police like Croatia</li>
+                    </ul>
+                    
+                    <div class="tip-box">
+                        <strong>🌟 Bosnia is the Balkan camper's paradise.</strong> Cheap fuel, cheap food, incredible nature, and nobody bothers you.
+                    </div>
+                    
+                    <h4>Best Wild Spots</h4>
+                    <ul>
+                        <li><strong>Una River Valley</strong> - Crystal clear, waterfall paradise</li>
+                        <li><strong>Sutjeska National Park</strong> - Primeval forest, nobody around</li>
+                        <li><strong>Bjelašnica</strong> - Mountain roads, epic views</li>
+                        <li><strong>Trebinje area</strong> - Mediterranean climate, wine country</li>
+                        <li><strong>Jajce waterfalls</strong> - Town parking is fine overnight</li>
+                    </ul>
+                    
+                    <div class="loophole">
+                        <h4>🤝 The Bosnian Way</h4>
+                        <p>Stop at a café, buy a coffee (€0.80), ask "Je li u redu da prespavam ovdje?" (Is it OK to sleep here?). The answer is almost always yes, often with an offer to use their bathroom.</p>
+                    </div>
+                    
+                    <h4>Tips</h4>
+                    <ul>
+                        <li>Fuel is 20-30% cheaper than Croatia</li>
+                        <li>Stock up on groceries - much cheaper</li>
+                        <li>Many places have no address - download offline maps</li>
+                        <li>Cash is king - ATMs available in towns</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Serbia -->
+            <div class="country-card">
+                <div class="country-header" onclick="toggleCountry(this)">
+                    <h3>🇷🇸 Serbia</h3>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="country-content">
+                    <span class="status status-relaxed">✅ Relaxed - Little Enforcement</span>
+                    
+                    <h4>The Law</h4>
+                    <ul>
+                        <li>Wild camping officially not allowed in national parks</li>
+                        <li>Elsewhere: <strong>gray area, rarely enforced</strong></li>
+                        <li>No real camping culture = no camping police</li>
+                        <li>Fines exist on paper but enforcement is minimal</li>
+                    </ul>
+                    
+                    <h4>Best Areas</h4>
+                    <ul>
+                        <li><strong>Tara National Park</strong> - Viewpoints, forest roads</li>
+                        <li><strong>Đerdap (Iron Gates)</strong> - Danube gorge, incredible</li>
+                        <li><strong>Fruška Gora</strong> - Wine country near Novi Sad</li>
+                        <li><strong>Zlatibor region</strong> - Mountain meadows</li>
+                        <li><strong>Uvac Canyon</strong> - Must-see, wild camping tolerated</li>
+                    </ul>
+                    
+                    <div class="tip-box">
+                        <strong>💡 Local Tip:</strong> Serbians love chatting about campers and travel. Be friendly, you'll probably get invited for rakija.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Montenegro -->
+            <div class="country-card">
+                <div class="country-header" onclick="toggleCountry(this)">
+                    <h3>🇲🇪 Montenegro</h3>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="country-content">
+                    <span class="status status-tolerated">⚠️ Gray Zone - Depends Where</span>
+                    
+                    <h4>The Law</h4>
+                    <ul>
+                        <li>Wild camping prohibited, especially coastal areas</li>
+                        <li>Fines: <strong>€30-200</strong></li>
+                        <li>Coast (Budva, Kotor) = Stricter enforcement</li>
+                        <li>Mountains = Nobody cares</li>
+                    </ul>
+                    
+                    <h4>The Reality</h4>
+                    <ul>
+                        <li><strong>Kotor Bay:</strong> Getting stricter, tourist police active</li>
+                        <li><strong>Budva Riviera:</strong> Popular = patrolled</li>
+                        <li><strong>Durmitor:</strong> Officially forbidden, often tolerated</li>
+                        <li><strong>Biogradska Gora:</strong> Strictly enforced</li>
+                        <li><strong>Prokletije:</strong> Wild, nobody around</li>
+                    </ul>
+                    
+                    <div class="loophole">
+                        <h4>🔓 Best Legal Options</h4>
+                        <ul>
+                            <li><strong>Autocamp spots</strong> - Many small, cheap ones inland</li>
+                            <li><strong>Lake Skadar</strong> - Fishing villages, ask locals</li>
+                            <li><strong>Kolašin area</strong> - Mountain restaurants often allow parking</li>
+                            <li><strong>Private land near Žabljak</strong> - Many locals rent their yards</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Albania Bonus -->
+            <div class="country-card">
+                <div class="country-header" onclick="toggleCountry(this)">
+                    <h3>🇦🇱 Albania (Bonus!)</h3>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="country-content">
+                    <span class="status status-relaxed">🤠 Wild West - Do What You Want</span>
+                    
+                    <h4>The Reality</h4>
+                    <ul>
+                        <li>No real camping laws or enforcement</li>
+                        <li>Park anywhere that seems reasonable</li>
+                        <li>Beaches, mountains, wherever</li>
+                        <li>Super friendly locals, very curious about campers</li>
+                        <li>Cheapest fuel and food in the Balkans</li>
+                    </ul>
+                    
+                    <div class="tip-box">
+                        <strong>🏝️ Albanian Riviera:</strong> The last wild coast in Europe. Free beach camping still possible (for now). Dhërmi, Gjipe Beach, Jale - paradise.
+                    </div>
+                    
+                    <h4>Watch Out For</h4>
+                    <ul>
+                        <li>Road quality varies wildly</li>
+                        <li>Not all areas have phone signal</li>
+                        <li>Download offline maps (Maps.me, OsmAnd)</li>
+                        <li>Construction boom = some beaches being developed fast</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Stealth Tips -->
+        <section id="tips">
+            <h2>💡 Stealth Camping Tips</h2>
+            
+            <h3>🥷 The Art of "Parking"</h3>
+            <ul>
+                <li><strong>Arrive late, leave early</strong> - After 21:00, before 8:00</li>
+                <li><strong>Everything stays inside</strong> - No chairs, tables, awnings</li>
+                <li><strong>Window covers</strong> - Block light, add privacy</li>
+                <li><strong>Have a story ready</strong> - "Just resting before continuing to [next city]"</li>
+                <li><strong>Don't look like you're living there</strong> - This is the key difference</li>
+            </ul>
+            
+            <h3>📍 Best Spot Types</h3>
+            <ul>
+                <li><strong>Large supermarket parking lots</strong> - Konzum, Lidl, often tolerated</li>
+                <li><strong>Highway rest stops</strong> - Legal for "rest", not camping</li>
+                <li><strong>Industrial areas</strong> - Empty at night, nobody cares</li>
+                <li><strong>Church parking</strong> - Often ignored, be respectful</li>
+                <li><strong>Sports facilities</strong> - Empty evening/night</li>
+                <li><strong>Behind restaurants</strong> - Ask the owner, often yes</li>
+            </ul>
+            
+            <div class="warning-box">
+                <strong>⚠️ Avoid:</strong> Beach parking lots, tourist hotspots, anywhere with "no camping" signs, nature reserve parking, near marinas (cameras).
+            </div>
+            
+            <h3>🎒 Essential Gear</h3>
+            <ul>
+                <li><strong>Reflective window covers</strong> - Privacy + temperature</li>
+                <li><strong>Portable toilet</strong> - No midnight walks</li>
+                <li><strong>Water containers</strong> - 20-40L storage</li>
+                <li><strong>Solar panel</strong> - Stay off-grid longer</li>
+                <li><strong>Offline maps</strong> - Cell coverage isn't everywhere</li>
+                <li><strong>Cash</strong> - Many places still cash-only</li>
+            </ul>
+        </section>
+        
+        <!-- Best Spots -->
+        <section id="spots">
+            <h2>📍 Top Free/Cheap Spots</h2>
+            <p>From Park4Night, iOverlander, and local knowledge. Verify before going!</p>
+            
+            <h3>🇭🇷 Croatia</h3>
+            <div class="spot">
+                <h4>Motovun Wine Roads</h4>
+                <p>Istrian wine country, many wineries allow overnight parking if you buy wine</p>
+                <p class="coords">📍 45.3364, 13.8289</p>
+            </div>
+            <div class="spot">
+                <h4>Plitvice Alternative</h4>
+                <p>Park outside the national park zone, in villages. Cheaper, fewer crowds.</p>
+                <p class="coords">📍 44.8654, 15.5821</p>
+            </div>
+            <div class="spot">
+                <h4>Kornati Approach</h4>
+                <p>Murter marina area, boat parking lots often free overnight</p>
+                <p class="coords">📍 43.8095, 15.5937</p>
+            </div>
+            
+            <h3>🇧🇦 Bosnia</h3>
+            <div class="spot">
+                <h4>Una River - Štrbački Buk</h4>
+                <p>Near the waterfall, multiple pullouts, stunning. Wild camping common.</p>
+                <p class="coords">📍 44.5839, 15.8089</p>
+            </div>
+            <div class="spot">
+                <h4>Trebinje - Lastva</h4>
+                <p>Viewpoint above town, nobody bothers you, sunset paradise</p>
+                <p class="coords">📍 42.7175, 18.3478</p>
+            </div>
+            <div class="spot">
+                <h4>Blidinje Nature Park</h4>
+                <p>Mountain plateau, multiple spots, very isolated, spectacular</p>
+                <p class="coords">📍 43.5989, 17.5228</p>
+            </div>
+            
+            <h3>🇲🇪 Montenegro</h3>
+            <div class="spot">
+                <h4>Durmitor - Žabljak backroads</h4>
+                <p>Many forest pullouts, ask at local cafes</p>
+                <p class="coords">📍 43.1511, 19.1228</p>
+            </div>
+            <div class="spot">
+                <h4>Lake Skadar - Virpazar area</h4>
+                <p>Fishing village vibe, restaurant parking usually OK</p>
+                <p class="coords">📍 42.2439, 19.0942</p>
+            </div>
+            
+            <h3>🇷🇸 Serbia</h3>
+            <div class="spot">
+                <h4>Uvac Canyon</h4>
+                <p>Viewpoints with parking, spectacular curves, eagles</p>
+                <p class="coords">📍 43.3867, 19.9697</p>
+            </div>
+            <div class="spot">
+                <h4>Đerdap - Lepenski Vir</h4>
+                <p>Danube views, less touristy than Golubac</p>
+                <p class="coords">📍 44.5581, 22.0278</p>
+            </div>
+        </section>
+        
+        <!-- Apps & Resources -->
+        <section id="apps">
+            <h2>📱 Essential Apps</h2>
+            
+            <div class="apps-grid">
+                <a href="https://www.park4night.com" target="_blank" class="app-card">
+                    <div class="icon">🅿️</div>
+                    <h4>Park4Night</h4>
+                    <p>Best overnight spot database</p>
+                </a>
+                <a href="https://www.ioverlander.com" target="_blank" class="app-card">
+                    <div class="icon">🗺️</div>
+                    <h4>iOverlander</h4>
+                    <p>Community spots, free</p>
+                </a>
+                <a href="https://maps.me" target="_blank" class="app-card">
+                    <div class="icon">📍</div>
+                    <h4>Maps.me</h4>
+                    <p>Offline maps</p>
+                </a>
+                <a href="https://osmand.net" target="_blank" class="app-card">
+                    <div class="icon">🧭</div>
+                    <h4>OsmAnd</h4>
+                    <p>Detailed offline maps</p>
+                </a>
+                <a href="https://caravanya.com" target="_blank" class="app-card">
+                    <div class="icon">🚐</div>
+                    <h4>Caravanya</h4>
+                    <p>Camping spots Europe</p>
+                </a>
+                <a href="https://www.campercontact.com" target="_blank" class="app-card">
+                    <div class="icon">⛺</div>
+                    <h4>Campercontact</h4>
+                    <p>Motorhome areas</p>
+                </a>
+            </div>
+            
+            <h3>💧 Utilities</h3>
+            <div class="apps-grid">
+                <a href="#" class="app-card">
+                    <div class="icon">💧</div>
+                    <h4>Water Sources</h4>
+                    <p>Use Park4Night filter for "water point"</p>
+                </a>
+                <a href="#" class="app-card">
+                    <div class="icon">🚽</div>
+                    <h4>Dump Stations</h4>
+                    <p>Filter for "cassette" on P4N</p>
+                </a>
+                <a href="https://openchargemap.org" target="_blank" class="app-card">
+                    <div class="icon">⚡</div>
+                    <h4>OpenChargeMap</h4>
+                    <p>EV charging (if hybrid)</p>
+                </a>
+            </div>
+            
+            <h3>🌐 Communities</h3>
+            <ul>
+                <li><a href="https://www.facebook.com/groups/campervanlifeeurope/" target="_blank">Facebook: Campervan Life Europe</a></li>
+                <li><a href="https://www.facebook.com/groups/vanlifebalkan/" target="_blank">Facebook: Van Life Balkan</a></li>
+                <li><a href="https://www.reddit.com/r/vandwellers/" target="_blank">Reddit: r/vandwellers</a></li>
+                <li><a href="https://www.reddit.com/r/CamperVans/" target="_blank">Reddit: r/CamperVans</a></li>
+            </ul>
+        </section>
+        
+        <!-- Van Build Section -->
+        <section id="build">
+            <h2>🔧 DIY Camper Build</h2>
+            <p>Dream of building your own? Here's what you need to know.</p>
+            
+            <h3>🚐 Sprinter vs Other Vans</h3>
+            <table class="cost-table">
+                <tr>
+                    <th>Van</th>
+                    <th>Pros</th>
+                    <th>Cons</th>
+                </tr>
+                <tr>
+                    <td>Mercedes Sprinter</td>
+                    <td>Tall ceiling, reliable, parts available</td>
+                    <td>Expensive, rust issues (older)</td>
+                </tr>
+                <tr>
+                    <td>VW Crafter</td>
+                    <td>Same platform as Sprinter, often cheaper</td>
+                    <td>Less common in Balkans</td>
+                </tr>
+                <tr>
+                    <td>Fiat Ducato</td>
+                    <td>Cheap, easy to work on, everywhere</td>
+                    <td>Less refined, narrower</td>
+                </tr>
+                <tr>
+                    <td>Ford Transit</td>
+                    <td>Good value, parts cheap</td>
+                    <td>Mixed reliability reports</td>
+                </tr>
+                <tr>
+                    <td>Iveco Daily</td>
+                    <td>Cheap in Balkans, tough</td>
+                    <td>Basic, noisier</td>
+                </tr>
+            </table>
+            
+            <h3>💰 Build Cost Breakdown (Budget Build)</h3>
+            <table class="cost-table">
+                <tr>
+                    <th>Category</th>
+                    <th>Budget</th>
+                    <th>Mid-Range</th>
+                </tr>
+                <tr>
+                    <td>Base Van (used)</td>
+                    <td>€3,000-8,000</td>
+                    <td>€10,000-20,000</td>
+                </tr>
+                <tr>
+                    <td>Insulation</td>
+                    <td>€200-400</td>
+                    <td>€500-800</td>
+                </tr>
+                <tr>
+                    <td>Wall/Ceiling Panels</td>
+                    <td>€200-500</td>
+                    <td>€500-1,000</td>
+                </tr>
+                <tr>
+                    <td>Flooring</td>
+                    <td>€100-200</td>
+                    <td>€300-500</td>
+                </tr>
+                <tr>
+                    <td>Electrics (solar, battery)</td>
+                    <td>€500-1,000</td>
+                    <td>€1,500-3,000</td>
+                </tr>
+                <tr>
+                    <td>Bed Frame/Furniture</td>
+                    <td>€300-600</td>
+                    <td>€800-1,500</td>
+                </tr>
+                <tr>
+                    <td>Water System</td>
+                    <td>€100-300</td>
+                    <td>€400-800</td>
+                </tr>
+                <tr>
+                    <td>Cooking (stove, sink)</td>
+                    <td>€100-200</td>
+                    <td>€300-600</td>
+                </tr>
+                <tr>
+                    <td>Heating (diesel/gas)</td>
+                    <td>€200-500</td>
+                    <td>€800-1,500</td>
+                </tr>
+                <tr>
+                    <td><strong>TOTAL</strong></td>
+                    <td><strong>€4,700-11,700</strong></td>
+                    <td><strong>€15,100-29,700</strong></td>
+                </tr>
+            </table>
+            
+            <div class="tip-box">
+                <strong>💡 Balkan Advantage:</strong> Labor and parts are cheaper in Serbia, Bosnia, North Macedonia. Consider doing major work there!
+            </div>
+            
+            <h3>📺 Best YouTube Channels</h3>
+            
+            <a href="https://www.youtube.com/@VanlifeCroatia" target="_blank" class="yt-link">
+                <span class="yt-icon">🎬</span>
+                <div>
+                    <strong>Vanlife Croatia</strong>
+                    <br><small>Local content, Balkan routes</small>
+                </div>
+            </a>
+            
+            <a href="https://www.youtube.com/@GregVirgoe" target="_blank" class="yt-link">
+                <span class="yt-icon">🎬</span>
+                <div>
+                    <strong>Greg Virgoe</strong>
+                    <br><small>Quality builds, detailed tutorials</small>
+                </div>
+            </a>
+            
+            <a href="https://www.youtube.com/@NathanToasty" target="_blank" class="yt-link">
+                <span class="yt-icon">🎬</span>
+                <div>
+                    <strong>Toasty Builds</strong>
+                    <br><small>DIY Sprinter conversions</small>
+                </div>
+            </a>
+            
+            <a href="https://www.youtube.com/@VanLifeOnBudget" target="_blank" class="yt-link">
+                <span class="yt-icon">🎬</span>
+                <div>
+                    <strong>Van Life on a Budget</strong>
+                    <br><small>Budget-friendly builds</small>
+                </div>
+            </a>
+            
+            <a href="https://www.youtube.com/@FarOutRide" target="_blank" class="yt-link">
+                <span class="yt-icon">🎬</span>
+                <div>
+                    <strong>FarOutRide</strong>
+                    <br><small>Technical deep-dives, electrical</small>
+                </div>
+            </a>
+            
+            <h3>📚 Build Guides</h3>
+            <ul>
+                <li><a href="https://faroutride.com" target="_blank">FarOutRide</a> - Free electrical calculator, detailed guides</li>
+                <li><a href="https://thevanconversion.com" target="_blank">The Van Conversion</a> - Step-by-step tutorials</li>
+                <li><a href="https://www.parkedinparadise.com" target="_blank">Parked in Paradise</a> - Budget build guides</li>
+            </ul>
+            
+            <h3>🛒 Where to Buy in Balkans</h3>
+            <ul>
+                <li><strong>Bauhaus</strong> (HR, SI) - Wood, insulation, basic supplies</li>
+                <li><strong>Pevec</strong> (HR) - Cheaper alternative to Bauhaus</li>
+                <li><strong>Uradi Sam</strong> (RS) - Serbian DIY store</li>
+                <li><strong>AliExpress</strong> - Solar panels, LEDs, small parts</li>
+                <li><strong>eBay.de</strong> - Ship to Balkans, good for specific parts</li>
+                <li><strong>Njuškalo/Olx</strong> - Used parts, donor vehicles</li>
+            </ul>
+        </section>
+        
+        <!-- Marco Polo Section -->
+        <section>
+            <h2>🚐 Mercedes Marco Polo 2001</h2>
+            <p>Tips for your current ride:</p>
+            
+            <ul>
+                <li><strong>Common issues:</strong> Glow plug relay, injector seals, turbo actuator</li>
+                <li><strong>Spare parts:</strong> Keep spare glow plugs, fuel filter, belt</li>
+                <li><strong>Balkans advantage:</strong> Mercedes dealers everywhere, parts available</li>
+                <li><strong>Upgrade ideas:</strong> LED interior lights, USB ports, second battery</li>
+            </ul>
+            
+            <div class="tip-box">
+                <strong>📍 Mercedes Dealers with Good Reputations:</strong>
+                <br>Zagreb: Autohrvatska
+                <br>Split: Auto Zubak
+                <br>Belgrade: Star Import
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>🏕️ Camp free, camp smart, leave no trace</p>
+        <p style="margin-top: 1rem; opacity: 0.7; font-size: 0.9rem;">
+            Built for road warriors by <a href="https://github.com/clawdleo">Clawdbot</a>
+            <br>Last updated: February 2024
+        </p>
+    </footer>
+    
+    <script>
+        function toggleCountry(header) {
+            const card = header.parentElement;
+            card.classList.toggle('open');
+        }
+        
+        // Open all cards on larger screens
+        if (window.innerWidth > 768) {
+            document.querySelectorAll('.country-card').forEach(card => {
+                card.classList.add('open');
+            });
+        }
+        
+        // Smooth scroll for nav
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
